@@ -1,24 +1,68 @@
 # README
+## usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column              | Type    | Options                    |
+| ------------------- | ------- | -------------------------- |
+| nickname            | string  | null: false                |
+| email               | string  | unique: true, null: false  |
+| encrypted_password  | string  | null: false                |
+| first_name          | string  | null: false                |
+| second_name         | string  | null: false                |
+| given_name          | string  | null: false                |
+| last_name           | string  | null: false                |
+| birthday_id         | date    | null: false                |
 
-Things you may want to cover:
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :buys
 
-* Configuration
+## itemテーブル
 
-* Database creation
+| Column          | Type       | Options           |
+| --------------- | ---------- | ----------------- |
+| name　　　       | string     | null: false       |
+| text            | text       | null: false       |
+| category_id     | integer    | null: false       |
+| status_id       | integer    | null: false       |
+| price           | integer    | null: false       |
+| area_id         | integer    | null: false       |
+| days_id         | integer    | null: false       |
+| delivery_fee_id | integer    | null: false       |
+| user            | references | foreign_key: true |
 
-* Database initialization
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_one :buy
 
-* Deployment instructions
+## buysテーブル
 
-* ...
+| Column      | Type      | Options           |
+| ----------- | --------- | ----------------- |
+| user        | reference | foreign_key: true |
+| item        | reference | foreign_key: true |
+
+### Association
+
+- has_one :address
+- belongs_to :item
+- belongs_to :user
+
+## Addressesテーブル
+
+| Column         | Type      | Options           |
+| -------------- | --------- | ----------------- |
+| postal_code    | string    | null: false       |
+| area_id | integer   | null: false       |
+| municipality   | string    | null: false       |
+| address        | string    | null: false       |
+| building_name  | string    |                   |
+| phone_number   | string    | null: false       |
+| buy            | reference | foreign_key: true |
+
+### Association
+ 
+- belongs_to :buy
