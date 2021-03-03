@@ -10,25 +10,26 @@
 | second_name         | string  | null: false  |
 | given_name          | string  | null: false  |
 | last_name           | string  | null: false  |
+| birthday_id         | date    | null: false  |
 
 
 ### Association
 
 - has_many :items
-- has_many :
+- has_many :buys
 
 ## itemテーブル
 
 | Column          | Type       | Options           |
 | --------------- | ---------- | ----------------- |
-| item_name       | string     | null: false       |
+| name　　　       | string     | null: false       |
 | text            | text       | null: false       |
-| category_id     | string     | null: false       |
-| status_id       | string     | null: false       |
-| price           | string     | null: false       |
-| area_id         | string     | null: false       |
-| days_id         | string     | null: false       |
-| delivery_fee_id | string     | null: false       |
+| category_id     | integer    | null: false       |
+| status_id       | integer    | null: false       |
+| price           | integer    | null: false       |
+| area_id         | integer    | null: false       |
+| days_id         | integer    | null: false       |
+| delivery_fee_id | integer    | null: false       |
 | user            | references | foreign_key: true |
 
 
@@ -41,8 +42,8 @@
 
 | Column      | Type      | Options           |
 | ----------- | --------- | ----------------- |
-| nickname    | reference | foreign_kye: true |
-| item_name   | reference | foreign_kye: true |
+| user        | reference | foreign_kye: true |
+| item        | reference | foreign_kye: true |
 
 ### Association
 
@@ -55,10 +56,10 @@
 | Column         | Type      | Options     |
 | -------------- | --------- | ----------- |
 | postal_code    | string    | null: false |
-| prefectures_id | string    | null: false |
+| prefectures_id | integer   | null: false |
 | municipality   | string    | null: false |
 | address        | string    | null: false |
-| building_name  | string    | null: true  |
+| building_name  | string    |             |
 | phone_number   | string    | null: false |
 
 ### Association
