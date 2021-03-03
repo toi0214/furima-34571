@@ -1,22 +1,22 @@
 # README
 ## usersテーブル
 
-| Column              | Type    | Options      |
-| ------------------- | ------- | ------------ |
-| nickname            | string  | null: false  |
-| email               | string  | unique: true |
-| encrypted_password  | string  | null: false  |
-| first_name          | string  | null: false  |
-| second_name         | string  | null: false  |
-| given_name          | string  | null: false  |
-| last_name           | string  | null: false  |
-| birthday_id         | date    | null: false  |
+| Column              | Type    | Options                    |
+| ------------------- | ------- | -------------------------- |
+| nickname            | string  | null: false                |
+| email               | string  | unique: true, null: false  |
+| encrypted_password  | string  | null: false                |
+| first_name          | string  | null: false                |
+| second_name         | string  | null: false                |
+| given_name          | string  | null: false                |
+| last_name           | string  | null: false                |
+| birthday_id         | date    | null: false                |
 
 
 ### Association
 
 - has_many :items
-- has_many :buys
+- has_one :buy
 
 ## itemテーブル
 
@@ -53,14 +53,15 @@
 
 ## Addressesテーブル
 
-| Column         | Type      | Options     |
-| -------------- | --------- | ----------- |
-| postal_code    | string    | null: false |
-| prefectures_id | integer   | null: false |
-| municipality   | string    | null: false |
-| address        | string    | null: false |
-| building_name  | string    |             |
-| phone_number   | string    | null: false |
+| Column         | Type      | Options      |
+| -------------- | --------- | ------------ |
+| postal_code    | string    | null: false  |
+| prefectures_id | integer   | null: false  |
+| municipality   | string    | null: false  |
+| address        | string    | null: false  |
+| building_name  | string    |              |
+| phone_number   | string    | null: false  |
+| buy            | reference | foreign: kye |
 
 ### Association
  
