@@ -8,7 +8,8 @@ FactoryBot.define do
     delivery_day_id        {2}
     delivery_fee_id        {2}
     price                  {1000}
-    user
+    
+    association :user
 
     after(:build) do |message|
       message.image.attach(io: File.open('app/assets/images/flag.png'), filename: 'test_image.png')
