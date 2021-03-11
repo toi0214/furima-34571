@@ -10,11 +10,11 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   with_options presence: true do
-    with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ } do
-      validates :name
-      validates :info
-    end
-    validates :price
+
+    validates :name
+    validates :info
+    validates_inclusion_of :price, in: 300..9_999_999
+    validates :image
   end
   with_options numericality: { other_than: 1 } do
     validates :category_id
