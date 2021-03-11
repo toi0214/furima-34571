@@ -10,11 +10,13 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   with_options presence: true do
-
     validates :name
     validates :info
-    validates_inclusion_of :price, in: 300..9_999_999
     validates :image
+  end
+
+  with_options format: { with:/\A[0-9]+\z/, message: '半角文字を使用してください' } do
+    validates_inclusion_of :price, in: 300..9_999_999
   end
   with_options numericality: { other_than: 1 } do
     validates :category_id
