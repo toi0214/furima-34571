@@ -20,11 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @user = Item.new
-    @items = @item.user
   end
-
-# showアクションを定義し、特定の商品情報w出力する @itemをその中で定義する
 
   private
 
