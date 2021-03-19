@@ -13,10 +13,10 @@ class BuyHistory
     validates :token
   end
 
-  validates :phone_number, length: {maximum: 12}
+  validates :phone_number, length: {maximum: 11}
 
   def save
     buy = Buy.create(user_id: user_id, item_id: item_id)
-    Address.create(postal_code: postal_code, area_id: area_id, municipality: municipality, address: address, building_name: building_name, phone_number: phone_number, buy: buy)
+    Address.create(postal_code: postal_code, area_id: area_id, municipality: municipality, address: address, building_name: building_name, phone_number: phone_number, buy_id: buy.id)
   end
 end
