@@ -28,7 +28,7 @@
 | status_id       | integer    | null: false       |
 | price           | integer    | null: false       |
 | area_id         | integer    | null: false       |
-| delivery_day_id         | integer    | null: false       |
+| delivery_day_id | integer    | null: false       |
 | delivery_fee_id | integer    | null: false       |
 | user            | references | foreign_key: true |
 
@@ -56,7 +56,7 @@
 | Column         | Type      | Options           |
 | -------------- | --------- | ----------------- |
 | postal_code    | string    | null: false       |
-| area_id | integer   | null: false       |
+| area_id        | integer   | null: false       |
 | municipality   | string    | null: false       |
 | address        | string    | null: false       |
 | building_name  | string    |                   |
