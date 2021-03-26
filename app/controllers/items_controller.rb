@@ -2,9 +2,14 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :item_info, only: [:update, :edit, :destroy]
+  before_action :search_item, only: [:index, :search]
   
   def index
     @items = Item.all.order("created_at DESC")
+  end
+
+  def search
+    @results = @p.result
   end
 
   def new
@@ -53,6 +58,10 @@ class ItemsController < ApplicationController
 
   def item_info
     redirect_to root_path if current_user.id != @item.user_id || @item.buy != nil
+  end
+
+  def search_item
+    @p = Item.ransack(params[:q])
   end
 
 end

@@ -45,6 +45,10 @@
   width: 100%;
 }
 
+.search {
+  display: none;
+}
+
 .nav {
   font-size: 18px;
   display: flex;
